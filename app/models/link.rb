@@ -5,4 +5,8 @@ class Link < ActiveRecord::Base
   def self.find_users_links(params)
     where(user:params[:id])
   end
+
+  def self.find_users_links_by_read_status(params)
+    where(user:params[:id], read:params[:read])
+  end
 end
