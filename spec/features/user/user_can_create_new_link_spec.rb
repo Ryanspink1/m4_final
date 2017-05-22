@@ -16,6 +16,5 @@ RSpec.describe "user can create new link", :js => :true do
     expect(page).to have_content('false')
     expect(page).to have_content('Mark As Read')
 
-
   end
 end
