@@ -58,9 +58,8 @@ function appendLinkTable(data){
            <th class="table-url">   ${data[i].url}</th>
            <th class="table-title"> ${data[i].title}</th>
            <th class="table-read">  ${data[i].read}</th>
-           <th>
-           <button type="button" class="btn btn-default" id="mark-read" onClick="editReadStatus(this, true)">Mark Read</button>
-           </th>
+           <th><button type="button" class="btn btn-default" id="mark-read" onClick="editReadStatus(this, true)">Mark Read</button></th>
+           <th><form action="http://localhost:3000/links/${data[i].id}/edit"><input type="submit" value="Edit"/></form></th>
            <th style="display:none" class="table-link-id"> ${data[i].id}</th>
         `
       )
@@ -71,16 +70,14 @@ function appendLinkTable(data){
           <th class="table-url">${data[i].url}</th>
           <th class="table-title">${data[i].title}</th>
           <th class="table-read">${data[i].read}</th>
-          <th>
-          <button type="button" class="btn btn-default" id="mark-unread" onClick="editReadStatus(this,false)">Mark Unread</button>
-          </th>
+          <th><button type="button" class="btn btn-default" id="mark-unread" onClick="editReadStatus(this,false)">Mark Unread</button></th>
+          <th><form action="http://localhost:3000/links/${data[i].id}/edit"><input type="submit" value="Edit"/></form></th>
           <th style="display:none" class="table-link-id"> ${data[i].id}</th>
        `
      )
    }
   }
 }
-
 function getLinkIndex(){
   clearTable()
   clearInput()
@@ -92,10 +89,9 @@ function getLinkIndex(){
 }
 
 function editReadStatus(page, boolean){
-  id = page.closest('tr').children[4].innerHTML
+  id = page.closest('tr').children[5].innerHTML
   readStatus = boolean
   var linkParams = {read:readStatus}
-  
   $.ajax({
     url: `http://localhost:3000/api/v1/links/${id}`,
     type: 'put',
