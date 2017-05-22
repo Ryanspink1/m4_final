@@ -5,9 +5,10 @@ $(document).ready(function(){
 })
 
 function clearTable(){
-  var tableData = $('.link-table-data')[0].innerHTML = ""
-  for(i)
-  $('.link-table-data')[0].innerHTML = ""
+  var tableData = $('.link-table-data')
+  for(i=0;i<tableData.length;i++){
+    tableData[i].innerHTML = ""
+  }
 }
 
 function appendLinkTable(data){
@@ -28,9 +29,10 @@ function appendLinkTable(data){
 
 function getLinkIndex(){
   clearTable()
+  debugger;
   var userID = $('#create-link-user-id').val()
   $.ajax({
     url: `http://localhost:3000/api/v1/links?id=${userID}`,
     type: 'get'
-  }).then(appendLinkTable)
+  }).done(appendLinkTable)
 }

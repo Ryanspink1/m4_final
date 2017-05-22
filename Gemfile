@@ -15,6 +15,7 @@ gem 'responders'
 gem 'awesome_print' , require:"ap"
 gem 'sprockets-es6'
 gem 'bcrypt', '~> 3.1.7'
+gem 'rack-cors'
 
 # gem 'unicorn'
 
