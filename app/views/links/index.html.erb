@@ -25,6 +25,13 @@
   </form>
   <button id="submit-new-link" type="submit" onClick = "findFormValues()" class="btn btn-primary">Create Link</button>
 
+  <form>
+    <div>
+      <label for="">Filter by name</label>
+      <input type="text" onkeyup="filterSearch()"class="form-control" id="search" placeholder="">
+    </div>
+  </form>
+
   <table id="links-table" class="table table-bordered">
     <tr>
       <h3 class="text-center"></h3>
