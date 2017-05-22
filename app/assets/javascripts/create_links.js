@@ -32,7 +32,10 @@ function createLink(url, title, userID){
 $(document).ready(function(){
   if(window.location.pathname.substr(1,10) == "links"){
     getLinkIndex()
-  };
+  }
+  else if(window.location.pathname =="/"){
+    getLinkIndex()
+  }
 })
 
 function clearTable(){
