@@ -13,7 +13,7 @@ function createLink(url, title, userID){
     url: "http://localhost:3000/api/v1/links",
     type: 'post',
     data: linkParams,
-  }).done(getLinkIndex())
+  }).done(setTimeout(getLinkIndex, 500))
   //   .catch(function(error){
   //   console.error(error)
   // })
@@ -43,6 +43,11 @@ function clearTable(){
   for(i=0;i<tableData.length;i++){
     tableData[i].innerHTML = ""
   }
+}
+
+function clearInput(){
+  $('#create-link-url')[0].value = ""
+  $('#create-link-title')[0].value = ""
 }
 
 function appendLinkTable(data){
@@ -76,6 +81,7 @@ function appendLinkTable(data){
 
 function getLinkIndex(){
   clearTable()
+  clearInput()
   var userID = $('#create-link-user-id').val()
   $.ajax({
     url: `http://localhost:3000/api/v1/links?id=${userID}`,
