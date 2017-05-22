@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class ="col-md-7">
+        <h2 align=center>Create New Account</h2></br>
+          <div class="caption" align=center>
+           <%= form_for @user do |f| %>
+            <p align=right>Email: <%= f.email_field :email, placeholder: "email" %></p>
+            <p align=right>Password: <%= f.password_field :password, placeholder: "password" %></p>
+            <p align=right>Confirm: <%= f.password_field :password_confirmation, placeholder: "password_confirmation" %></p></br>
+            <h3 align=center><%= f.submit "Submit New Account" %></h3></br>
+          <% end %></br>
+          </div></br>
+   <p align=center><a class="btn btn-success btn-lg" href="/beans" role="button">Continue as Guest</a></p>
+
+      </div>
+    </div>
+  </div>
+</div>
