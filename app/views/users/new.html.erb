@@ -5,9 +5,9 @@
         <h2 align=center>Create New Account</h2></br>
           <div class="caption" align=center>
            <%= form_for @user do |f| %>
-            <p align=right>Email: <%= f.email_field :email %></p>
-            <p align=right>Password: <%= f.password_field :password %></p>
-            <p align=right>Confirm: <%= f.password_field :password_confirmation %></p></br>
+            <p align=right>Email: <%= f.email_field :email, placeholder: "email" %></p>
+            <p align=right>Password: <%= f.password_field :password, placeholder: "password" %></p>
+            <p align=right>Confirm: <%= f.password_field :password_confirmation, placeholder: "password_confirmation" %></p></br>
             <h3 align=center><%= f.submit "Submit New Account" %></h3></br>
           <% end %></br>
           </div></br>

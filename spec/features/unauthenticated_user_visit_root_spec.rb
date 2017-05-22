@@ -5,6 +5,6 @@ describe "unauthenticated user visiting the root path" do
 
     visit root_path
 
-    expect(path).to eq('/login')
+    expect(current_path).to eq('/login')
   end
 end
