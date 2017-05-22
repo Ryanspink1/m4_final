@@ -55,9 +55,9 @@ function appendLinkTable(data){
     if(data[i].read.toString() == "false"){
       $('#links-table').append(
         `<tr class="link-table-data">
-           <th class="table-url">   ${data[i].url}</th>
-           <th class="table-title"> ${data[i].title}</th>
-           <th class="table-read">  ${data[i].read}</th>
+           <th class="table-url">${data[i].url}</th>
+           <th class="table-title">${data[i].title}</th>
+           <th class="table-read">${data[i].read}</th>
            <th><button type="button" class="btn btn-default" id="mark-read" onClick="editReadStatus(this, true)">Mark Read</button></th>
            <th><form action="http://localhost:3000/links/${data[i].id}/edit"><input type="submit" value="Edit"/></form></th>
            <th style="display:none" class="table-link-id"> ${data[i].id}</th>
