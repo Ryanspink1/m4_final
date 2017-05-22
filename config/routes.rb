@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  root to: 'home#show', as: 'root'
+  root to: "links#index"
 
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
-  
-  root to: "links#index"
+  delete '/logout', to: "sessions#destroy"
+
+
 
   resources :links, only: [:index]
 
