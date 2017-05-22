@@ -24,13 +24,19 @@
 
   </form>
   <button id="submit-new-link" type="submit" onClick = "findFormValues()" class="btn btn-primary">Create Link</button>
-
+  <br><br>
   <form>
     <div>
-      <label for="">Filter by name</label>
+      <label for="">Filter by Name:</label>
       <input type="text" onkeyup="filterSearch()"class="form-control" id="search" placeholder="">
     </div>
   </form>
+  <br>
+  <div id="filter-by-read-buttons">
+    <strong>Filter by Read Status:</strong><br>
+    <button id="filter-by-read-button" type="submit" onClick = "filterByRead(true)" class="btn btn-primary">Show Read</button>
+    <button id="filter-by-unread-button" type="submit" onClick = "filterByRead(false)" class="btn btn-primary">Show Unread</button>
+  </div>
 
   <table id="links-table" class="table table-bordered">
     <tr>
