@@ -17,7 +17,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li><a href="/" class="nav-writing"><span class="glyphicon glyphicon-user"></span> <%= current_user.email %></a></li>
-          <li class='logout'><%= link_to "Sign Out", '/logout', method: :delete %></li>
+          <li id = "nav-logout-button" class='logout'><%= link_to "Sign Out", '/logout', method: :delete %></li>
         <% else %>
           <li><a href="/login" class="nav-writing"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></li>
         <% end %>
