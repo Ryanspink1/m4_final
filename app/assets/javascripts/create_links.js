@@ -95,7 +95,7 @@ function editReadStatus(page, boolean){
   id = page.closest('tr').children[4].innerHTML
   readStatus = boolean
   var linkParams = {read:readStatus}
-debugger;
+  
   $.ajax({
     url: `http://localhost:3000/api/v1/links/${id}`,
     type: 'put',
