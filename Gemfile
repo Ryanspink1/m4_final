@@ -12,7 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 gem 'responders'
-gem 'awesome_print'
+gem 'awesome_print' , require:"ap"
 gem 'sprockets-es6'
 # gem 'bcrypt', '~> 3.1.7'
 
