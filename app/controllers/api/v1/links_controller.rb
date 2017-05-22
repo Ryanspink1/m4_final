@@ -9,6 +9,10 @@ class Api::V1::LinksController < ApplicationController
   #   end
   # end
 
+  def index
+    render json: Link.find_users_links(params)
+  end
+
   def create
     user = User.find(link_params[:user])
     user.links.create(url:link_params[:url], title:link_params[:title])

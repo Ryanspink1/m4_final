@@ -13,7 +13,7 @@ function createLink(url, title, userID){
     url: "http://localhost:3000/api/v1/links",
     type: 'post',
     data: linkParams,
-  }).then(location.reload())
+  }).then(getLinkIndex())
     .catch(function(error){
     console.error(error)
   })
