@@ -19,4 +19,23 @@ RSpec.describe "user can edit a link read status", :js => :true do
 
 
   end
+
+  scenario "editing a read status changes styling" do
+    user = User.create(id: 1, email:"user@user.com", password:"password")
+    user.links.create(url:"www.facebook.com", title:"facebook")
+
+    visit '/links'
+
+    expect(page).to have_content('Mark Read')
+
+    click_button 'Mark Read'
+
+    expect(page).to_not have_content('Mark Read')
+
+    within('.link-table-data') do
+      expect(page).to have_css('background-color:red')
+    end
+
+
+  end
 end

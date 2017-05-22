@@ -66,7 +66,7 @@ function appendLinkTable(data){
     }
    else{
      $('#links-table').append(
-       `<tr class="link-table-data">
+       `<tr style="background-color:red" class="link-table-data">
           <th class="table-url">${data[i].url}</th>
           <th class="table-title">${data[i].title}</th>
           <th class="table-read">${data[i].read}</th>
