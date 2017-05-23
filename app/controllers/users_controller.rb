@@ -12,7 +12,8 @@ before_action :user!, only: [:show]
       redirect_to links_path
       flash[:success] = "You've created an account!"
     else
-      render :new
+      redirect_to new_user_path
+      flash[:danger] = @user.errors.full_messages.to_sentence
     end
   end
 

@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(session_params[:password])
       session[:user_id] = user.id
         redirect_to '/links'
+        flash[:success] = "Successfully logged in, welcome back"
     else
       flash[:danger] = 'Invalid Credentials'
       render :new
