@@ -89,7 +89,7 @@ function getLinkIndex(){
 }
 
 function editReadStatus(page, boolean){
-  id = page.closest('tr').children[5].innerHTML
+  id = page.parentElement.parentElement.children[5].innerHTML
   readStatus = boolean
   linkParams = {read:readStatus}
   $.ajax({
