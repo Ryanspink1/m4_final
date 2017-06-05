@@ -3,7 +3,7 @@ class LinksController < ApplicationController
     skip_before_filter :verify_authenticity_token
 
   def index
-    @id = Presenter.find_current_user_id(current_user)
+    @id = current_user.id
   end
 
   def edit
