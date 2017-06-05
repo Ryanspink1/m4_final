@@ -6,6 +6,7 @@ RSpec.describe "user can filter links by read status", :js => :true do
     link = user.links.create(url:"www.facebook.com", title:"Facebook", read:"true")
     link_two = user.links.create(url:"www.espn.com", title:"espn")
     link_three = user.links.create(url:"www.hamtime.com", title:"hamtime", read:"true")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit '/links'
 
