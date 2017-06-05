@@ -11,7 +11,7 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def index
-    render json: Link.find_users_links(params)
+    render json: Link.find_users_links(current_user)
   end
 
   def create

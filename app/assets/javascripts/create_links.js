@@ -1,33 +1,19 @@
 function findFormValues(){
   url  = $('#create-link-url').val()
   title = $('#create-link-title').val()
-  userID = $('#create-link-user-id').val()
 
-  createLink(url, title, userID)
+  createLink(url, title)
 }
 
-function createLink(url, title, userID){
-  linkParams = {url: url, title: title, user:userID}
+function createLink(url, title){
+  linkParams = {url: url, title: title}
 
   $.ajax({
     url: "http://localhost:3000//api/v1/links",
     type: 'post',
     data: linkParams,
   }).then(setTimeout(getLinkIndex, 500)).fail(error)
-  //   .catch(function(error){
-  //   console.error(error)
-  // })
 }
-
-
-
-
-
-
-
-
-
-
 
 $(document).ready(function(){
   if(window.location.pathname.substr(1,10) == "links"){
@@ -82,9 +68,8 @@ function getLinkIndex(){
   clearErrors()
   clearTable()
   clearInput()
-  userID = $('#create-link-user-id').val()
   $.ajax({
-    url: `http://localhost:3000//api/v1/links?id=${userID}`,
+    url: `http://localhost:3000//api/v1/links`,
     type: 'get'
   }).done(appendLinkTable).done(callToHotReads)
 }
