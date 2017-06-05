@@ -60,7 +60,7 @@ function appendLinkTable(data){
            <th class="table-read">${data[i].read}</th>
            <th><button type="button" class="btn btn-default" id="mark-read" onClick="editReadStatus(this, true)">Mark Read</button></th>
            <th><form action="http://localhost:3000/links/${data[i].id}/edit"><input type="submit" value="Edit"/></form></th>
-           <th style="display:none" class="table-link-id"> ${data[i].id}</th>
+           <th style="display:none" class="table-link-id">${data[i].id}</th>
         `
       )
     }
@@ -72,7 +72,7 @@ function appendLinkTable(data){
           <th class="table-read">${data[i].read}</th>
           <th><button type="button" class="btn btn-default" id="mark-unread" onClick="editReadStatus(this,false)">Mark Unread</button></th>
           <th><form action="http://localhost:3000/links/${data[i].id}/edit"><input type="submit" value="Edit"/></form></th>
-          <th style="display:none" class="table-link-id"> ${data[i].id}</th>
+          <th style="display:none" class="table-link-id">${data[i].id}</th>
        `
      )
    }
