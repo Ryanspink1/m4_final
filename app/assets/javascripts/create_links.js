@@ -85,7 +85,7 @@ function getLinkIndex(){
   $.ajax({
     url: `http://localhost:3000/api/v1/links?id=${userID}`,
     type: 'get'
-  }).done(appendLinkTable)
+  }).done(appendLinkTable).done(callToHotReads)
 }
 
 function editReadStatus(page, boolean){
@@ -96,6 +96,6 @@ function editReadStatus(page, boolean){
     url: `http://localhost:3000/api/v1/links/${id}`,
     type: 'put',
     data: linkParams,
-  }).done(setTimeout(getLinkIndex, 500))
+  }).done(setTimeout(getLinkIndex, 500)).done(postToHotReads(page, boolean)).done(getLinkIndex)
 
 }
