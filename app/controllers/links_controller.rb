@@ -13,12 +13,12 @@ class LinksController < ApplicationController
 
   def update
     link = Link.find(params[:id])
-    if link.update(url:params[:link][:url], title: params[:link][:title])
+    if link.update(url:params[:link][:url], title: params[:link][:title], read:false)
       flash[:success] = "You have successfully updated your link"
       redirect_to root_path
     else
-      render :edit
-      # flash[:danger] = link.errors.full_messages.to_sentence
+      flash[:danger] = link.errors.full_messages.to_sentence
+      redirect_to edit_link_path
     end
   end
 

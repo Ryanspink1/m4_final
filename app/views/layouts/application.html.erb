@@ -13,6 +13,10 @@
 <body>
 <div class="container">
   <%= render 'navbar/navbar' %>
+  <div id="js-error-div">
+    <p id="js-error-message" style="color:red">
+    </p>
+  </div>
   <div class="flash-message" style='text-align:center'>
     <% flash.each do |type, message| %>
       <% if type == "success" %>

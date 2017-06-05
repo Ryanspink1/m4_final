@@ -1,6 +1,6 @@
 class Api::V1::LinksController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  
+
   def update
     @link = Link.find(params[:id])
     if @link.update_attributes(link_params)
@@ -16,7 +16,12 @@ class Api::V1::LinksController < ApplicationController
 
   def create
     user = User.find(link_params[:user])
-    user.links.create(url:link_params[:url], title:link_params[:title])
+    link = user.links.new(url:link_params[:url], title:link_params[:title])
+    if link.save
+      render json:link
+    else
+      render json: link.errors.full_messages, status: 500
+    end
   end
 
 private

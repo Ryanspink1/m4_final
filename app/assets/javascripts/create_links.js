@@ -13,7 +13,7 @@ function createLink(url, title, userID){
     url: "http://localhost:3000/api/v1/links",
     type: 'post',
     data: linkParams,
-  }).done(setTimeout(getLinkIndex, 500))
+  }).then(setTimeout(getLinkIndex, 500)).fail(error)
   //   .catch(function(error){
   //   console.error(error)
   // })
@@ -79,6 +79,7 @@ function appendLinkTable(data){
   }
 }
 function getLinkIndex(){
+  clearErrors()
   clearTable()
   clearInput()
   userID = $('#create-link-user-id').val()
