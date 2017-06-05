@@ -23,6 +23,7 @@ RSpec.describe "user can edit a link read status", :js => :true do
   scenario "editing a read status changes styling" do
     user = User.create(id: 1, email:"user@user.com", password:"password")
     user.links.create(url:"www.facebook.com", title:"facebook")
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit '/links'
 
