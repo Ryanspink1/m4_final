@@ -1,6 +1,6 @@
 function callToHotReads(){
   $.ajax({
-    url: `https://finalhotreads.herokuapp.com/api/v1/toplinks `,
+    url: `http://localhost:3001/api/v1/toplinks `,
     type: 'get'
   }).done(setHotReadsData)
 }

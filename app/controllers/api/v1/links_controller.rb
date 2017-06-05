@@ -15,7 +15,7 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def create
-    user = User.find(link_params[:user])
+    user = User.find(current_user.id)
     link = user.links.new(url:link_params[:url], title:link_params[:title])
     if link.save
       render json:link
