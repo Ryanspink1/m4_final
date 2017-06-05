@@ -15,8 +15,6 @@ RSpec.describe "user can create new link", :js => :true do
 
 
     link = user.links
-    # binding.pry
-
 
     expect(page).to have_content('www.google.com')
     expect(page).to have_content('Google')

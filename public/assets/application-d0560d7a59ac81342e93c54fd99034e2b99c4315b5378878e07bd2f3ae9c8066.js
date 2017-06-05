@@ -11574,7 +11574,7 @@ function createLink(url, title, userID){
   linkParams = {url: url, title: title, user:userID}
 
   $.ajax({
-    url: "http://localhost:3000//api/v1/links",
+    url: "https://urllockboxfinal.herokuapp.com//api/v1/links",
     type: 'post',
     data: linkParams,
   }).then(setTimeout(getLinkIndex, 500)).fail(error)
@@ -11623,7 +11623,7 @@ function appendLinkTable(data){
            <th class="table-title">${data[i].title}</th>
            <th class="table-read">${data[i].read}</th>
            <th><button type="button" class="btn btn-default" id="mark-read" onClick="editReadStatus(this, true)">Mark Read</button></th>
-           <th><form action="http://localhost:3000//links/${data[i].id}/edit"><input type="submit" value="Edit"/></form></th>
+           <th><form action="https://urllockboxfinal.herokuapp.com//links/${data[i].id}/edit"><input type="submit" value="Edit"/></form></th>
            <th style="display:none" class="table-link-id">${data[i].id}</th>
         `
       )
@@ -11635,7 +11635,7 @@ function appendLinkTable(data){
           <th class="table-title">${data[i].title}</th>
           <th class="table-read">${data[i].read}</th>
           <th><button type="button" class="btn btn-default" id="mark-unread" onClick="editReadStatus(this,false)">Mark Unread</button></th>
-          <th><form action="http://localhost:3000//links/${data[i].id}/edit"><input type="submit" value="Edit"/></form></th>
+          <th><form action="https://urllockboxfinal.herokuapp.com//links/${data[i].id}/edit"><input type="submit" value="Edit"/></form></th>
           <th style="display:none" class="table-link-id">${data[i].id}</th>
        `
      )
@@ -11648,7 +11648,7 @@ function getLinkIndex(){
   clearInput()
   userID = $('#create-link-user-id').val()
   $.ajax({
-    url: `http://localhost:3000//api/v1/links?id=${userID}`,
+    url: `https://urllockboxfinal.herokuapp.com//api/v1/links?id=${userID}`,
     type: 'get'
   }).done(appendLinkTable).done(callToHotReads)
 }
@@ -11658,7 +11658,7 @@ function editReadStatus(page, boolean){
   readStatus = boolean
   linkParams = {read:readStatus}
   $.ajax({
-    url: `http://localhost:3000//api/v1/links/${id}`,
+    url: `https://urllockboxfinal.herokuapp.com//api/v1/links/${id}`,
     type: 'put',
     data: linkParams,
   }).done(setTimeout(getLinkIndex, 500)).done(postToHotReads(page, boolean)).done(getLinkIndex)
@@ -11679,7 +11679,7 @@ function filterByRead(boolean){
   clearTable()
   userID = $('#create-link-user-id').val()
   $.ajax({
-    url: `http://localhost:3000//api/v1/linksreadstatus?id=${userID}&read=${boolean}`,
+    url: `https://urllockboxfinal.herokuapp.com//api/v1/linksreadstatus?id=${userID}&read=${boolean}`,
     type: 'get'
   }).done(appendLinkTable)
 }
@@ -11709,7 +11709,7 @@ function filterSearch(){
 ;
 function callToHotReads(){
   $.ajax({
-    url: `http://localhost:3001/api/v1/toplinks `,
+    url: `https://finalhotreads.herokuapp.com/api/v1/toplinks `,
     type: 'get'
   }).done(setHotReadsData)
 }
@@ -11744,7 +11744,7 @@ function postToHotReads(page, boolean){
   if(boolean.toString() == "true"){
     url = {url:page.parentElement.parentElement.children[0].innerHTML}
     $.ajax({
-      url: "http://localhost:3001/links",
+      url: "https://finalhotreads.herokuapp.com/links",
       type: 'post',
       data: url
     })
