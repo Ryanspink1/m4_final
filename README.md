@@ -13,12 +13,12 @@ Clone the repository.
 Run command `bundle install`
 To serve program, run command `rails s` and navigate to url: `http://localhost:3000`
 
-#Test Suite
+# Test Suite
 
 Testing is run by RSpec, Capybara, and Selenium
 To run test suite, run command  `rspec`
 
-#API Documentation
+# API Documentation
 
 API endpoints:
 
@@ -30,13 +30,13 @@ API endpoints:
 
 - `PUT/PATCH api/v1/links/:id` allows a logged in user to update an existing link
 
-#Production links
+# Production links
 
 - URL Lockbox: `https://urllockboxfinal.herokuapp.com/`
 
 - Hot Reads: `https://finalhotreads.herokuapp.com`
 
-#Known Bugs
+# Known Bugs
 
 - The only known bug is that selenium was not working properly locally and gave a CORS error in firefox.
 
