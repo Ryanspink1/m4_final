@@ -6,7 +6,7 @@ RSpec.describe "user can edit a link read status", :js => :true do
     user = User.create(id: 1, email:"user@user.com", password:"password")
     user.links.create(url:"www.facebook.com", title:"facebook")
     user.links.create(url:"www.facebook.com", title:"facebook", read:'true')
-
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit '/links'
 
