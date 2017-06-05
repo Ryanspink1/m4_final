@@ -14,12 +14,6 @@ RSpec.describe "user can create new link", :js => :true do
     click_button("submit-new-link")
 
 
-    link = user.links
-<<<<<<< HEAD
-=======
-
->>>>>>> a7349abeeaf8c07c352a7c048dbb5bdd42e93204
-
     expect(page).to have_content('www.google.com')
     expect(page).to have_content('Google')
     expect(page).to have_content('false')
