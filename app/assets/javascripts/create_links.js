@@ -1,13 +1,13 @@
 function findFormValues(){
-  var url  = $('#create-link-url').val()
-  var title = $('#create-link-title').val()
-  var userID = $('#create-link-user-id').val()
+  url  = $('#create-link-url').val()
+  title = $('#create-link-title').val()
+  userID = $('#create-link-user-id').val()
 
   createLink(url, title, userID)
 }
 
 function createLink(url, title, userID){
-  var linkParams = {url: url, title: title, user:userID}
+  linkParams = {url: url, title: title, user:userID}
 
   $.ajax({
     url: "http://localhost:3000/api/v1/links",
@@ -39,7 +39,7 @@ $(document).ready(function(){
 })
 
 function clearTable(){
-  var tableData = $('.link-table-data')
+  tableData = $('.link-table-data')
   for(i=0;i<tableData.length;i++){
     tableData[i].innerHTML = ""
   }
@@ -60,7 +60,7 @@ function appendLinkTable(data){
            <th class="table-read">${data[i].read}</th>
            <th><button type="button" class="btn btn-default" id="mark-read" onClick="editReadStatus(this, true)">Mark Read</button></th>
            <th><form action="http://localhost:3000/links/${data[i].id}/edit"><input type="submit" value="Edit"/></form></th>
-           <th style="display:none" class="table-link-id"> ${data[i].id}</th>
+           <th style="display:none" class="table-link-id">${data[i].id}</th>
         `
       )
     }
@@ -72,7 +72,7 @@ function appendLinkTable(data){
           <th class="table-read">${data[i].read}</th>
           <th><button type="button" class="btn btn-default" id="mark-unread" onClick="editReadStatus(this,false)">Mark Unread</button></th>
           <th><form action="http://localhost:3000/links/${data[i].id}/edit"><input type="submit" value="Edit"/></form></th>
-          <th style="display:none" class="table-link-id"> ${data[i].id}</th>
+          <th style="display:none" class="table-link-id">${data[i].id}</th>
        `
      )
    }
@@ -81,7 +81,7 @@ function appendLinkTable(data){
 function getLinkIndex(){
   clearTable()
   clearInput()
-  var userID = $('#create-link-user-id').val()
+  userID = $('#create-link-user-id').val()
   $.ajax({
     url: `http://localhost:3000/api/v1/links?id=${userID}`,
     type: 'get'
@@ -89,9 +89,9 @@ function getLinkIndex(){
 }
 
 function editReadStatus(page, boolean){
-  id = page.closest('tr').children[5].innerHTML
+  id = page.parentElement.parentElement.children[5].innerHTML
   readStatus = boolean
-  var linkParams = {read:readStatus}
+  linkParams = {read:readStatus}
   $.ajax({
     url: `http://localhost:3000/api/v1/links/${id}`,
     type: 'put',

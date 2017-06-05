@@ -19,12 +19,12 @@ function appendHotReadsInfo(topLink, hotLinks){
 
   for(i=0;i<linkUrls.length;i++){
     if(linkUrls[i].innerHTML == topLink){
-      linkUrls[i].closest('tr').append(`TOP LINK`)
+      linkUrls[i].parentElement.append(`TOP LINK`)
     }
     else{
       for(l=0;l<hotLinks.length;l++){
         if(linkUrls[i].innerHTML == hotLinks[l]){
-          linkUrls[i].closest('tr').append("HOT")
+          linkUrls[i].parentElement.append("HOT")
         }
       }
     }
