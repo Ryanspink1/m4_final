@@ -1,27 +1,45 @@
 # URLockBox
+URL Lockbox is a program that allows a logged in user to create a list of links, edit those links, mark them read or unread, sort by url or title, and sort by read status.
 
-## Final Assessment
+This program coordinates with the program Hot Reads to determine which links have been read the most over the past 24 hours, regardless of user (links among the top read will either be labelled "Top Link" or "Hot" depending on read count)
 
-The URLockbox is a starter app for the final assessment for module 4 of the backend engineering program at Turing School of Software and Design.
+## Build
 
-Be sure to get familiar with what is already done, and what is not. No features are complete, but there is some set up done for several features. Use commit history if that helps.
+This application was built with rails 5.0.1
 
-### Testing your JS with Selenium
+## Initial Setup
 
-The app has the `selenium-webdriver` gem listed in the `Gemfile` and setup in the `rails_helper.rb`
+Clone the repository.
+Run command `bundle install`
+To serve program, run command `rails s` and navigate to url: `http://localhost:3000`
 
-#### Setup
+#Test Suite
 
-Everything will be installed with Bundle.
+Testing is run by RSpec, Capybara, and Selenium
+To run test suite, run command  `rspec`
 
-You will need to download version 46 of Firefox [here](https://www.softexia.com/windows/web-browsers/firefox-46). If you do have it, make sure it is on version 46. Selenium does not work with all versions of Firefox, so make sure that you are using Firefox 46 or else it will potentially cause you problems.
+#API Documentation
 
-If you already have Firefox and it's on a version more recent than 46, the easiest way to downgrade is to uninstall Firefox then install version 46.
+API endpoints:
 
-#### Use
+- `GET /api/v1/linksreadstatus` returns a list of links that have a read status of true or false based content of params[:read] (either true or false)
 
-You can then write capybara feature tests and add `js: true` tag if you'd like your test to use the Selenium WebDriver rather than the default WebDriver.  Your tests will execute and recognize your JavaScript.
+- `GET /api/v1/links` allows a logged in user to return a list of their associated links
 
-If you're having problems troubleshooting asynchronous actions (like DOM changes after an AJAX request), [peruse this section of Capybara's docs](https://github.com/teamcapybara/capybara#asynchronous-javascript-ajax-and-friends)
+- `POST /api/v1/links` allows a logged in user to create a new link
 
-It is highly suggested that you also check out the Capybara docs and and the section on [selenium-webdriver](https://github.com/teamcapybara/capybara#selenium).
+- `PUT/PATCH api/v1/links/:id` allows a logged in user to update an existing link
+
+#Production links
+
+- URL Lockbox: `https://urllockboxfinal.herokuapp.com/`
+
+- Hot Reads: `https://finalhotreads.herokuapp.com`
+
+#Known Bugs
+
+- The only known bug is that selenium was not working properly locally and gave a CORS error in firefox.
+
+- There are no other CORS errors in this program.
+
+- Instructor has given this a pass as long as test coverage is normal.
