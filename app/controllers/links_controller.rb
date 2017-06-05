@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
     before_action :user!
+    skip_before_filter :verify_authenticity_token
 
   def index
     @id = Presenter.find_current_user_id(current_user)

@@ -1,5 +1,6 @@
 class Api::V1::LinksController < ApplicationController
-
+  skip_before_filter :verify_authenticity_token
+  
   def update
     @link = Link.find(params[:id])
     if @link.update_attributes(link_params)
