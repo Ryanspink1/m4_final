@@ -1,5 +1,4 @@
 class LinksController < ApplicationController
-  require 'pry'
     before_action :user!
 
   def index
